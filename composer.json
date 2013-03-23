@@ -4,7 +4,7 @@
     "license": "BSD-3-Clause",
     "require": {
         "infinity/infinity-base": "dev-master",
-        "zf-commons/zfcuser": "0.*"
+        "zf-commons/zfc-user-doctrine-orm": "0.*"
     },
     "autoload": {
         "psr-0": {
