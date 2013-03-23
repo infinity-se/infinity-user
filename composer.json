@@ -8,7 +8,7 @@
     },
     "autoload": {
         "psr-0": {
-            "InfinityUser\\": "module/InfinityUser/src/"
+            "InfinityUser\\": "src/"
         }
     }
 }
