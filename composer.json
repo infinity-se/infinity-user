@@ -8,7 +8,10 @@
     },
     "autoload": {
         "psr-0": {
-            "InfinityUser\\": "src/"
-        }
+            "InfinityUser": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
     }
 }
