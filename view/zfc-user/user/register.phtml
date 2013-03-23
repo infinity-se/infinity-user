@@ -1,0 +1,43 @@
+<?php
+if (!$this->enableRegistration) {
+    print "Registration is disabled";
+    return;
+}
+
+// Prepare form
+$form = $this->registerForm;
+$form->setAttribute('class', 'form-signin');
+$form->prepare();
+
+// Get elements
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary pull-right');
+
+// Start form
+echo $this->form()->openTag($form);
+?>
+    <h2 class="form-signin-heading">
+        Register
+    </h2>
+    <?php
+    foreach ($form as $element) {
+        if ($submit != $element) {
+            $element->setAttribute('placeholder', $element->getLabel());
+            echo $this->formRow($element);
+        }
+    }
+    ?>
+    <div class="form-buttons">
+        <?php echo $this->formRow($submit) ?>
+    </div>
+    <div class="form-links">
+        Already registered?
+        <a href="<?php echo $this->url('zfcuser/login') ?>">Login</a> here.
+    </div>
+    <?php if ($this->redirect): ?>
+        <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
+    <?php endif ?>
+<?php
+// End form
+echo $this->form()->closeTag()
+?>

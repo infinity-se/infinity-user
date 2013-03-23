@@ -1,0 +1,35 @@
+<?php
+
+// Prepare form
+$form = $this->loginForm;
+$form->setAttribute('class', 'form-signin');
+$form->prepare();
+
+// Get elements
+$identity = $form->get('identity');
+$credential = $form->get('credential');
+$submit = $form->get('submit');
+
+// Setup elements
+$identity->setAttribute('placeholder', $identity->getLabel());
+$credential->setAttribute('placeholder', $credential->getLabel());
+$submit->setAttribute('class', 'btn btn-primary pull-right');
+
+// Start form
+echo $this->form()->openTag($form);
+?>
+    <h2 class="form-signin-heading">
+        Sign In
+    </h2>
+    <?php echo $this->formRow($identity) ?>
+    <?php echo $this->formRow($credential) ?>
+    <div class="form-buttons">
+        <?php echo $this->formRow($submit) ?>
+    </div>
+    <div class="form-links">
+        <a href="<?php echo $this->url('zfcuser/register') ?>">Register</a>
+    </div>
+<?php
+// End form
+echo $this->form()->closeTag()
+?>

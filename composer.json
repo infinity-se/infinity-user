@@ -1,0 +1,14 @@
+{
+    "name": "infinity/infinity-user",
+    "description": "ZF2 user module for Infinity",
+    "license": "BSD-3-Clause",
+    "require": {
+        "infinity/infinity-base": "dev-master",
+        "zf-commons/zfcuser": "0.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "InfinityUser\\": "module/InfinityUser/src/"
+        }
+    }
+}
