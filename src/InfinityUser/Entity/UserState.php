@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping AS ORM;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(name="user_state")
  */
 class UserState
 {
