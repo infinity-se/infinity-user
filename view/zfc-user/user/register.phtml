@@ -7,6 +7,7 @@ if (!$this->enableRegistration) {
 // Prepare form
 $form = $this->registerForm;
 $form->setAttribute('class', 'form-signin');
+$form->setAttribute('action', $this->url('zfcuser/register'));
 $form->prepare();
 
 // Get elements
