@@ -38,18 +38,18 @@ class User implements UserInterface
     private $lastModified;
 
     /**
-     * @ORM\OneToOne(targetEntity="InfinityUser\Entity\UserEmail")
+     * @ORM\OneToOne(targetEntity="InfinityUser\Entity\UserEmail", cascade={"persist"})
      * @ORM\JoinColumn(name="primary_email_id", referencedColumnName="id", unique=true)
      */
     private $primaryEmail;
 
     /**
-     * @ORM\OneToOne(targetEntity="InfinityUser\Entity\UserProfile", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="InfinityUser\Entity\UserProfile", mappedBy="user", cascade={"persist"})
      */
     private $profile;
 
     /**
-     * @ORM\OneToMany(targetEntity="InfinityUser\Entity\UserPassword", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="InfinityUser\Entity\UserPassword", mappedBy="user", cascade={"persist"})
      */
     private $passwords;
 

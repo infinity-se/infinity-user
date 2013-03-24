@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'zfcuser' => array(
+    'zfcuser'       => array(
         'user_entity_class' => 'InfinityUser\Entity\User',
     ),
     'asset_manager' => array(
@@ -15,13 +15,15 @@ return array(
                 'js/login.js'   => array(
                     'js/jquery.js',
                     'js/bootstrap.js',
+                    'js/bootstrap-login.js',
                 ),
             ),
             'map'         => array(
+                'js/bootstrap-login.js'   => __DIR__ . '/../assets/js/bootstrap-login.js',
                 'css/bootstrap-login.css' => __DIR__ . '/../assets/css/bootstrap-login.css',
             ),
         ),
-        'filters' => array(
+        'filters'          => array(
             'css/login.css' => array(
                 array(
                     'service' => 'SxBootstrap\Service\BootstrapFilter',

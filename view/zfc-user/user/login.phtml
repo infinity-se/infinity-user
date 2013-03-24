@@ -2,7 +2,7 @@
 
 // Prepare form
 $form = $this->loginForm;
-$form->setAttribute('class', 'form-signin');
+$form->setAttribute('action', $this->url('zfcuser/login'));
 $form->prepare();
 
 // Get elements
