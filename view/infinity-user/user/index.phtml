@@ -1,0 +1,20 @@
+<div class="span12">
+    <div class="hero-unit">
+        <div class="pull-right img-polaroid">
+            <?php echo $this->gravatar($this->zfcUserIdentity()->getEmail()) ?>
+        </div>
+        <h1>
+            Welcome
+        </h1>
+        <p>
+            Hello <?php echo $this->zfcUserDisplayName() ?>!
+        </p>
+        <p>
+            <a href="<?php echo $this->url('home') ?>">Home</a>
+            |
+            <a href="<?php echo $this->url('zfcuser/logout') ?>">Logout</a>
+            |
+            <a href="<?php /*echo$this->url('infinityuser/editprofile')*/ ?>">Edit Profile</a>
+        </p>
+    </div>
+</div>
