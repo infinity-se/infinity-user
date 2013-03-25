@@ -47,13 +47,14 @@ class Access implements ListenerAggregateInterface
         $controllerName = $routeMatch->getParam('controller', false);
 
         // Check controller
-        if ($controllerName == 'zfcuser') {
+        $controllers = array('zfcuser', 'infinityuser');
+        if (in_array($controllerName, $controllers)) {
 
             // Check action
             $actionName = $routeMatch->getParam('action');
 
             // Identity not allowed
-            $noIdentity = array('login', 'register');
+            $noIdentity = array('login', 'register', 'resetPassword');
             if (in_array($actionName, $noIdentity)) {
 
                 // Check identity

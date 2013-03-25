@@ -43,6 +43,16 @@ class UserProfile
      */
     private $gender;
 
+    /** 
+     * @ORM\Column(type="string", length=50, nullable=false, name="recovery_answer")
+     */
+    private $recoveryAnswer;
+
+    /** 
+     * @ORM\Column(type="string", length=150, nullable=false, name="recovery_question")
+     */
+    private $recoveryQuestion;
+
     /**
      * @ORM\Column(type="datetime", nullable=false)
      */

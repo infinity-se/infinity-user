@@ -48,6 +48,11 @@ class User implements UserInterface
      */
     private $profile;
 
+    /** 
+     * @ORM\OneToMany(targetEntity="InfinityUser\Entity\UserReset", mappedBy="user")
+     */
+    private $verifications;
+
     /**
      * @ORM\OneToMany(targetEntity="InfinityUser\Entity\UserPassword", mappedBy="user", cascade={"persist"})
      */

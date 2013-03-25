@@ -4,6 +4,34 @@ return array(
     'zfcuser'       => array(
         'user_entity_class' => 'InfinityUser\Entity\User',
     ),
+    'router' => array(
+        'routes' => array(
+            'infinityuser' => array(
+                'type' => 'Literal',
+                'priority' => 1000,
+                'options' => array(
+                    'route' => '/user',
+                    'defaults' => array(
+                        'controller' => 'infinityuser',
+                        'action'     => 'index',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'resetpassword' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/reset-password',
+                            'defaults' => array(
+                                'controller' => 'infinityuser',
+                                'action'     => 'resetPassword',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+    ),
     'asset_manager' => array(
         'resolver_configs' => array(
             'collections' => array(
@@ -46,6 +74,14 @@ return array(
                 )
             )
         )
+    ),
+    'controllers' => array(
+        'aliases' => array(
+            'infinityuser' => 'InfinityUser\Controller\User',
+        ),
+        'invokables' => array(
+            'InfinityUser\Controller\User' => 'InfinityUser\Controller\UserController',
+        ),
     ),
     'view_manager'  => array(
         'display_not_found_reason' => true,

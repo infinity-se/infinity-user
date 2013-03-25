@@ -36,6 +36,13 @@ class Module implements ConfigProviderInterface, ServiceProviderInterface
     public function getServiceConfig()
     {
         return array(
+            'aliases' => array(
+                'infinityuser_user_mapper' => 'zfcuser_user_mapper',
+            ),
+            'invokables' => array(
+                'infinityuser_reset_password_form' => 'InfinityUser\Form\ResetPassword',
+                'infinityuser_user_service' => 'InfinityUser\Service\User',
+            ),
             'factories' => array(
                 'zfcuser_user_mapper' => function ($serviceManager) {
                     return new Mapper\User(

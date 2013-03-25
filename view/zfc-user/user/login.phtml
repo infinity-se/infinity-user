@@ -2,7 +2,8 @@
 
 // Prepare form
 $form = $this->loginForm;
-$form->setAttribute('action', $this->url('zfcuser/login'));
+$redirect = isset($_GET['redirect']) ? '?redirect=' . $_GET['redirect'] : null;
+$form->setAttribute('action', $this->url('zfcuser/login') . $redirect);
 $form->prepare();
 
 // Get elements
@@ -18,16 +19,17 @@ $submit->setAttribute('class', 'btn btn-primary pull-right');
 // Start form
 echo $this->form()->openTag($form);
 ?>
-    <h2 class="form-signin-heading">
+    <h3 class="form-signin-heading">
         Sign In
-    </h2>
+    </h3>
     <?php echo $this->formRow($identity) ?>
     <?php echo $this->formRow($credential) ?>
     <div class="form-buttons">
         <?php echo $this->formRow($submit) ?>
     </div>
     <div class="form-links">
-        <a href="<?php echo $this->url('zfcuser/register') ?>">Register</a>
+        <a href="<?php echo $this->url('zfcuser/register') . $redirect ?>">Register</a>
+        | <a href="<?php echo $this->url('infinityuser/resetpassword') . $redirect ?>">Forgotten Password?</a>
     </div>
 <?php
 // End form

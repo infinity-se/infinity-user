@@ -20,7 +20,7 @@
             // Set state
             var location = properties.currentSlide.attr('action');
             properties.downloaded[location] = properties.currentSlide;
-            methods.updateState(properties.currentSlide.children('h2').text(), location);
+            methods.updateState(properties.currentSlide.children('.form-signin-heading').text(), location);
             methods.setState();
             
             // Assign click events
@@ -100,7 +100,7 @@
                 error,
                 '</p>'
             ].join('');
-            $('h2', properties.form).after(markup);
+            $('.form-signin-heading', properties.form).after(markup);
             methods.fadeIn();
         },
         updateState: function(title, location)
