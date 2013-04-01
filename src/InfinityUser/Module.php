@@ -37,10 +37,10 @@ class Module implements ConfigProviderInterface, ServiceProviderInterface
     {
         return array(
             'aliases' => array(
+                'Zend\Authentication\AuthenticationService' => 'zfcuser_auth_service',
                 'infinityuser_user_mapper' => 'zfcuser_user_mapper',
             ),
             'invokables' => array(
-                'infinityuser_reset_password_form' => 'InfinityUser\Form\ResetPassword',
                 'infinityuser_user_service' => 'InfinityUser\Service\User',
             ),
             'factories' => array(
@@ -49,6 +49,12 @@ class Module implements ConfigProviderInterface, ServiceProviderInterface
                         $serviceManager->get('zfcuser_doctrine_em'),
                         $serviceManager->get('zfcuser_module_options')
                     );
+                },
+                'infinityuser_reset_password_form' => function()
+                {
+                    $form = new Form\ResetPassword();
+                    $form->setInputFilter(new Form\ResetPasswordFilter());
+                    return $form;
                 },
             ),
         );

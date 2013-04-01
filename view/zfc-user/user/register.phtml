@@ -5,9 +5,9 @@ if (!$this->enableRegistration) {
 }
 
 // Prepare form
-$form = $this->registerForm;
+$form        = $this->registerForm;
 $redirectUrl = isset($_GET['redirect']) ? $_GET['redirect'] : $this->redirect;
-$redirect = $redirectUrl ? '?redirect=' . $redirectUrl : null;
+$redirect    = $redirectUrl ? '?redirect=' . $redirectUrl : null;
 $form->setAttribute('action', $this->url('zfcuser/register'));
 $form->prepare();
 
@@ -18,27 +18,28 @@ $submit->setAttribute('class', 'btn btn-primary pull-right');
 // Start form
 echo $this->form()->openTag($form);
 ?>
-    <h3 class="form-signin-heading">
-        Register
-    </h3>
-    <?php
-    foreach ($form as $element) {
-        if ($submit != $element) {
-            $element->setAttribute('placeholder', $element->getLabel());
-            echo $this->formRow($element);
-        }
+<h3 class="form-signin-heading">
+    Register
+</h3>
+<?php
+echo $this->messages();
+foreach ($form as $element) {
+    if ($submit != $element) {
+        $element->setAttribute('placeholder', $element->getLabel());
+        echo $this->formRow($element);
     }
-    ?>
-    <div class="form-buttons">
-        <?php echo $this->formRow($submit) ?>
-    </div>
-    <div class="form-links">
-        Already registered?
-        <a href="<?php echo $this->url('zfcuser/login') . $redirect ?>">Login</a> here.
-    </div>
-    <?php if ($this->redirect): ?>
-        <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($redirectUrl) ?>" />
-    <?php endif ?>
+}
+?>
+<div class="form-buttons">
+    <?php echo $this->formRow($submit) ?>
+</div>
+<div class="form-links">
+    Already registered?
+    <a href="<?php echo $this->url('zfcuser/login') . $redirect ?>">Login</a> here.
+</div>
+<?php if ($this->redirect): ?>
+    <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($redirectUrl) ?>" />
+<?php endif ?>
 <?php
 // End form
 echo $this->form()->closeTag()

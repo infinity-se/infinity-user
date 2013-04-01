@@ -1,15 +1,14 @@
 <?php
-
 // Prepare form
-$form = $this->loginForm;
+$form     = $this->loginForm;
 $redirect = isset($_GET['redirect']) ? '?redirect=' . $_GET['redirect'] : null;
 $form->setAttribute('action', $this->url('zfcuser/login') . $redirect);
 $form->prepare();
 
 // Get elements
-$identity = $form->get('identity');
+$identity   = $form->get('identity');
 $credential = $form->get('credential');
-$submit = $form->get('submit');
+$submit     = $form->get('submit');
 
 // Setup elements
 $identity->setAttribute('placeholder', $identity->getLabel());
@@ -19,18 +18,19 @@ $submit->setAttribute('class', 'btn btn-primary pull-right');
 // Start form
 echo $this->form()->openTag($form);
 ?>
-    <h3 class="form-signin-heading">
-        Sign In
-    </h3>
-    <?php echo $this->formRow($identity) ?>
-    <?php echo $this->formRow($credential) ?>
-    <div class="form-buttons">
-        <?php echo $this->formRow($submit) ?>
-    </div>
-    <div class="form-links">
-        <a href="<?php echo $this->url('zfcuser/register') . $redirect ?>">Register</a>
-        | <a href="<?php echo $this->url('infinityuser/resetpassword') . $redirect ?>">Forgotten Password?</a>
-    </div>
+<h3 class="form-signin-heading">
+    Sign In
+</h3>
+<?php echo $this->messages() ?>
+<?php echo $this->formRow($identity) ?>
+<?php echo $this->formRow($credential) ?>
+<div class="form-buttons">
+    <?php echo $this->formRow($submit) ?>
+</div>
+<div class="form-links">
+    <a href="<?php echo $this->url('zfcuser/register') . $redirect ?>">Register</a>
+    | <a href="<?php echo $this->url('infinityuser/resetpassword') . $redirect ?>">Forgotten Password?</a>
+</div>
 <?php
 // End form
 echo $this->form()->closeTag()
