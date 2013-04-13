@@ -1,27 +1,27 @@
 <?php
 
 return array(
-    'zfcuser'       => array(
+    'zfcuser'         => array(
         'user_entity_class' => 'InfinityUser\Entity\User',
     ),
-    'router' => array(
+    'router'          => array(
         'routes' => array(
             'infinityuser' => array(
-                'type' => 'Literal',
-                'priority' => 1000,
-                'options' => array(
-                    'route' => '/user',
+                'type'          => 'Literal',
+                'priority'      => 1000,
+                'options'       => array(
+                    'route'    => '/user',
                     'defaults' => array(
                         'controller' => 'infinityuser',
                         'action'     => 'index',
                     ),
                 ),
                 'may_terminate' => true,
-                'child_routes' => array(
+                'child_routes'  => array(
                     'resetpassword' => array(
-                        'type' => 'Literal',
+                        'type'    => 'Literal',
                         'options' => array(
-                            'route' => '/reset-password',
+                            'route'    => '/reset-password',
                             'defaults' => array(
                                 'controller' => 'infinityuser',
                                 'action'     => 'resetPassword',
@@ -32,7 +32,27 @@ return array(
             ),
         ),
     ),
-    'asset_manager' => array(
+    'navigation'      => array(
+        'default' => array(
+            array(
+                'label' => 'Users',
+                'route' => 'infinityuser'
+            ),
+        ),
+        'user'    => array(
+            array(
+                'label' => 'My Account',
+                'route' => 'infinityuser',
+                'pages' => array(
+                    'logout' => array(
+                        'label' => 'Logout',
+                        'route' => 'zfcuser/logout',
+                    ),
+                ),
+            ),
+        ),
+    ),
+    'asset_manager'   => array(
         'resolver_configs' => array(
             'collections' => array(
                 'css/login.css' => array(
@@ -59,7 +79,7 @@ return array(
             ),
         ),
     ),
-    'doctrine'      => array(
+    'doctrine'        => array(
         'driver' => array(
             'infinityuser_annotation_driver' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
@@ -75,15 +95,27 @@ return array(
             )
         )
     ),
-    'controllers' => array(
-        'aliases' => array(
+    'controllers'     => array(
+        'aliases'    => array(
             'infinityuser' => 'InfinityUser\Controller\User',
         ),
         'invokables' => array(
             'InfinityUser\Controller\User' => 'InfinityUser\Controller\UserController',
         ),
     ),
-    'view_manager'  => array(
+    'service_manager' => array(
+        'aliases'    => array(
+            'Zend\Authentication\AuthenticationService' => 'zfcuser_auth_service',
+            'infinityuser_user_mapper'                  => 'zfcuser_user_mapper',
+        ),
+        'invokables' => array(
+            'infinityuser_user_service' => 'InfinityUser\Service\User',
+        ),
+        'factories'  => array(
+            'infinityuser_navigation' => 'InfinityUser\Navigation\Service\UserNavigationFactory',
+        ),
+    ),
+    'view_manager'    => array(
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
         'doctype'                  => 'HTML5',

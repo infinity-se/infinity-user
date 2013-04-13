@@ -22,7 +22,7 @@ class Module implements ConfigProviderInterface, ServiceProviderInterface
         // Attach view rendering strategy
         $viewStrategy = new Mvc\View\Http\ViewRenderingStrategy();
         $eventManager->attachAggregate($viewStrategy);
-        
+
         // Attach user service listener
         $userListener = new Service\Listener\User();
         $eventManager->getSharedManager()->attachAggregate($userListener);
@@ -32,26 +32,18 @@ class Module implements ConfigProviderInterface, ServiceProviderInterface
     {
         return include __DIR__ . '/../../config/module.config.php';
     }
-    
+
     public function getServiceConfig()
     {
         return array(
-            'aliases' => array(
-                'Zend\Authentication\AuthenticationService' => 'zfcuser_auth_service',
-                'infinityuser_user_mapper' => 'zfcuser_user_mapper',
-            ),
-            'invokables' => array(
-                'infinityuser_user_service' => 'InfinityUser\Service\User',
-            ),
-            'factories' => array(
+            'factories'                        => array(
                 'zfcuser_user_mapper' => function ($serviceManager) {
                     return new Mapper\User(
-                        $serviceManager->get('zfcuser_doctrine_em'),
-                        $serviceManager->get('zfcuser_module_options')
+                            $serviceManager->get('zfcuser_doctrine_em'),
+                                                 $serviceManager->get('zfcuser_module_options')
                     );
                 },
-                'infinityuser_reset_password_form' => function()
-                {
+                'infinityuser_reset_password_form' => function() {
                     $form = new Form\ResetPassword();
                     $form->setInputFilter(new Form\ResetPasswordFilter());
                     return $form;

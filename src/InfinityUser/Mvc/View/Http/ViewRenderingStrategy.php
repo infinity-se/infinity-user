@@ -73,6 +73,11 @@ class ViewRenderingStrategy implements ListenerAggregateInterface
             // Add inline script
             $renderer->inlineScript()->setFile($basePath . '/js/login.js');
 
+        } else {
+            
+            // Setup authorised layout
+            $renderer->layout('layout/authorised');
+            
         }
         
     }
