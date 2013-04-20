@@ -43,12 +43,12 @@ class UserProfile
      */
     private $gender;
 
-    /** 
+    /**
      * @ORM\Column(type="string", length=50, nullable=true, name="recovery_answer")
      */
     private $recoveryAnswer;
 
-    /** 
+    /**
      * @ORM\Column(type="string", length=150, nullable=true, name="recovery_question")
      */
     private $recoveryQuestion;
@@ -81,7 +81,7 @@ class UserProfile
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -104,7 +104,7 @@ class UserProfile
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -127,7 +127,7 @@ class UserProfile
     /**
      * Get forename
      *
-     * @return string 
+     * @return string
      */
     public function getForename()
     {
@@ -150,7 +150,7 @@ class UserProfile
     /**
      * Get surname
      *
-     * @return string 
+     * @return string
      */
     public function getSurname()
     {
@@ -173,7 +173,7 @@ class UserProfile
     /**
      * Get dateOfBirth
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateOfBirth()
     {
@@ -196,7 +196,7 @@ class UserProfile
     /**
      * Get gender
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getGender()
     {
@@ -219,7 +219,7 @@ class UserProfile
     /**
      * Get created
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreated()
     {
@@ -242,7 +242,7 @@ class UserProfile
     /**
      * Get lastModified
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getLastModified()
     {
@@ -265,7 +265,7 @@ class UserProfile
     /**
      * Get user
      *
-     * @return \InfinityUser\Entity\User 
+     * @return \InfinityUser\Entity\User
      */
     public function getUser()
     {
@@ -273,3 +273,4 @@ class UserProfile
     }
 
 }
+

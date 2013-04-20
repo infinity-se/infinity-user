@@ -8,6 +8,7 @@ use Zend\EventManager\EventInterface;
 
 class User implements SharedListenerAggregateInterface
 {
+
     /**
      * @var array
      */
@@ -17,10 +18,10 @@ class User implements SharedListenerAggregateInterface
     {
         $this->_listeners[] = $sharedEventManager->attach(
                 'ZfcUser\Service\User', 'authenticate', array($this, 'authenticate'), 1000
-                );
+        );
         $this->_listeners[] = $sharedEventManager->attach(
                 'ZfcUser\Service\User', 'register', array($this, 'register'), 1000
-                );
+        );
     }
 
     public function detachShared(SharedEventManagerInterface $sharedEventManager)
@@ -31,14 +32,15 @@ class User implements SharedListenerAggregateInterface
             }
         }
     }
-    
+
     /**
      * Authenticate user
-     * 
+     *
      * @param EventInterface $event
      */
     public function authenticate(EventInterface $event)
     {
+
     }
 
     /**
@@ -50,19 +52,19 @@ class User implements SharedListenerAggregateInterface
     {
         // Load user entity
         $user = $event->getParam('user');
-        
+
         // Set proper password
         $userPasswords = $user->getPasswords();
         $userPassword  = $userPasswords[0];
         $user->removePassword($userPassword);
-        
+
         // Persist objects
         $userMapper = $event->getTarget()->getUserMapper();
         $userMapper->persistOnly($user);
         $userMapper->persistOnly($userPasswords[1]);
         $userMapper->persistOnly($user->getPrimaryEmail());
         $userMapper->persistOnly($user->getProfile());
-        
     }
 
 }
+

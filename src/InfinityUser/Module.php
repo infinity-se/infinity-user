@@ -36,11 +36,10 @@ class Module implements ConfigProviderInterface, ServiceProviderInterface
     public function getServiceConfig()
     {
         return array(
-            'factories'                        => array(
+            'factories' => array(
                 'zfcuser_user_mapper' => function ($serviceManager) {
                     return new Mapper\User(
-                            $serviceManager->get('zfcuser_doctrine_em'),
-                                                 $serviceManager->get('zfcuser_module_options')
+                            $serviceManager->get('zfcuser_doctrine_em'), $serviceManager->get('zfcuser_module_options')
                     );
                 },
                 'infinityuser_reset_password_form' => function() {

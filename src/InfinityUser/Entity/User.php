@@ -48,7 +48,7 @@ class User implements UserInterface
      */
     private $profile;
 
-    /** 
+    /**
      * @ORM\OneToMany(targetEntity="InfinityUser\Entity\UserReset", mappedBy="user")
      */
     private $verifications;
@@ -72,8 +72,8 @@ class User implements UserInterface
     /**
      * @ORM\ManyToMany(targetEntity="InfinityRbac\Entity\Role", inversedBy="users")
      * @ORM\JoinTable(
-     *     name="user_role", 
-     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)}, 
+     *     name="user_role",
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id", nullable=false)}
      * )
      */
@@ -82,8 +82,8 @@ class User implements UserInterface
     /**
      * @ORM\ManyToMany(targetEntity="InfinityAccounts\Entity\Account", inversedBy="users")
      * @ORM\JoinTable(
-     *     name="user_account", 
-     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)}, 
+     *     name="user_account",
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="account_id", referencedColumnName="id", nullable=false)}
      * )
      */
@@ -105,7 +105,7 @@ class User implements UserInterface
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -128,7 +128,7 @@ class User implements UserInterface
     /**
      * Get banned
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getBanned()
     {
@@ -151,7 +151,7 @@ class User implements UserInterface
     /**
      * Get created
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreated()
     {
@@ -174,7 +174,7 @@ class User implements UserInterface
     /**
      * Get lastModified
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getLastModified()
     {
@@ -197,7 +197,7 @@ class User implements UserInterface
     /**
      * Get primaryEmail
      *
-     * @return UserEmail 
+     * @return UserEmail
      */
     public function getPrimaryEmail()
     {
@@ -220,7 +220,7 @@ class User implements UserInterface
     /**
      * Get profile
      *
-     * @return UserProfile 
+     * @return UserProfile
      */
     public function getProfile()
     {
@@ -253,7 +253,7 @@ class User implements UserInterface
     /**
      * Get passwords
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPasswords()
     {
@@ -286,7 +286,7 @@ class User implements UserInterface
     /**
      * Get emails
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEmails()
     {
@@ -309,7 +309,7 @@ class User implements UserInterface
     /**
      * Get state
      *
-     * @return UserState 
+     * @return UserState
      */
     public function getState()
     {
@@ -342,7 +342,7 @@ class User implements UserInterface
     /**
      * Get roles
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getRoles()
     {
@@ -375,7 +375,7 @@ class User implements UserInterface
     /**
      * Get accounts
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getAccounts()
     {
@@ -386,7 +386,7 @@ class User implements UserInterface
 
     /**
      * Get email
-     * 
+     *
      * @return string
      */
     public function getEmail()
@@ -399,7 +399,7 @@ class User implements UserInterface
 
     /**
      * Get username
-     * 
+     *
      * @return string
      */
     public function getUsername()
@@ -412,7 +412,7 @@ class User implements UserInterface
 
     /**
      * Get display name
-     * 
+     *
      * @return string
      */
     public function getDisplayName()
@@ -431,7 +431,7 @@ class User implements UserInterface
 
     /**
      * Get password
-     * 
+     *
      * @return string
      */
     public function getPassword()
@@ -441,18 +441,16 @@ class User implements UserInterface
                 ->orderBy(array('created' => 'DESC'))
                 ->setMaxResults(1);
         $search   = $this->passwords->matching($criteria);
-        
+
         // Check search
-        if ($search instanceof ArrayCollection
-                && count($search) === 1
-                && $search[0] instanceof UserPassword) {
+        if ($search instanceof ArrayCollection && count($search) === 1 && $search[0] instanceof UserPassword) {
             return $search[0]->getPassword();
         }
     }
 
     /**
      * Set email
-     * 
+     *
      * @param string $email
      * @return User
      */
@@ -474,7 +472,7 @@ class User implements UserInterface
 
     /**
      * Set username
-     * 
+     *
      * @param string $username
      * @return User
      */
@@ -498,7 +496,7 @@ class User implements UserInterface
 
     /**
      * Set display name
-     * 
+     *
      * @param string $displayName
      * @return User
      */
@@ -529,7 +527,7 @@ class User implements UserInterface
 
     /**
      * Set password
-     * 
+     *
      * @param string $password
      * @return User
      */
@@ -547,7 +545,7 @@ class User implements UserInterface
 
     /**
      * Set id
-     * 
+     *
      * @param int $id
      */
     public function setId($id)
@@ -556,3 +554,4 @@ class User implements UserInterface
     }
 
 }
+

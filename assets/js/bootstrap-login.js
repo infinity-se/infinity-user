@@ -1,7 +1,7 @@
 (function($)
 {
     var
-    properties = {
+            properties = {
         currentSlide: null,
         deferred: {},
         downloaded: {},
@@ -16,29 +16,29 @@
             properties.form = $('.form-signin');
             properties.currentSlide = $('form', properties.form);
             properties.padding = properties.form.height() - properties.currentSlide.height();
-            
+
             // Set state
             var location = properties.currentSlide.attr('action');
             properties.downloaded[location] = properties.currentSlide;
             methods.updateState(properties.currentSlide.children('.form-signin-heading').text(), location);
             methods.setState();
-            
+
             // Assign click events
             properties.form.on('click', '.form-links', methods.click);
         },
         click: function(event)
         {
             var target = $(event.target),
-            // Get new location
-            title = target.text(),
-            location = target.attr('href');
-    
+                    // Get new location
+                    title = target.text(),
+                    location = target.attr('href');
+
             // Update state
             methods.updateState(title, location);
-            
+
             // Perform ajax request
             methods.makeRequest(location);
-            
+
             // Prevent standard click
             return false;
         },
@@ -48,7 +48,7 @@
                 height: properties.currentSlide.height() + properties.padding
             }, function()
             {
-               properties.currentSlide.fadeIn(properties.fadeDuration);
+                properties.currentSlide.fadeIn(properties.fadeDuration);
             });
         },
         fadeOut: function()
@@ -123,7 +123,7 @@
             }
         }
     };
-    
+
     $(document).ready(function()
     {
         methods.init();

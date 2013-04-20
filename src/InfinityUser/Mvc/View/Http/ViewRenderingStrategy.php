@@ -9,6 +9,7 @@ use Zend\View\Renderer\PhpRenderer;
 
 class ViewRenderingStrategy implements ListenerAggregateInterface
 {
+
     /**
      * @var array
      */
@@ -18,7 +19,7 @@ class ViewRenderingStrategy implements ListenerAggregateInterface
     {
         $this->_listeners[] = $eventManager->attach(
                 'render', array($this, 'load'), 900
-                );
+        );
     }
 
     public function detach(EventManagerInterface $eventManager)
@@ -51,7 +52,7 @@ class ViewRenderingStrategy implements ListenerAggregateInterface
         if (!$renderer instanceof PhpRenderer) {
             return;
         }
-        
+
         // Cache base path
         $basePath = $renderer->basePath();
 
@@ -65,16 +66,15 @@ class ViewRenderingStrategy implements ListenerAggregateInterface
             // Add head links
             $renderer->headLink()
                     ->setStylesheet($basePath . '/css/login.css');
-            
+
             // Remove head script
             $renderer->headScript()
                     ->setScript(null);
 
             // Add inline script
             $renderer->inlineScript()->setFile($basePath . '/js/login.js');
-
         }
-        
     }
 
 }
+

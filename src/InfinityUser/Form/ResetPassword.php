@@ -10,7 +10,7 @@ class ResetPassword extends ProvidesEventsForm
     public function __construct($name = null)
     {
         parent::__construct($name);
-        
+
         $this->add(array(
             'name'       => 'email',
             'options'    => array(

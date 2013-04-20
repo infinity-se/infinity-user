@@ -8,7 +8,6 @@ use Zend\ServiceManager\ServiceManagerAwareInterface;
 use Zend\ServiceManager\ServiceManager;
 use ZfcBase\EventManager\EventProvider;
 
-
 class User extends EventProvider implements ServiceManagerAwareInterface
 {
 
@@ -38,7 +37,7 @@ class User extends EventProvider implements ServiceManagerAwareInterface
         // Load user from email
         $emailAddress = $data['email'];
         $currentUser  = $this->getUserMapper()->findByEmail($emailAddress);
-        
+
         if (!$currentUser) {
             $this->addMessage('Email sent.');
             return false;
@@ -49,7 +48,7 @@ class User extends EventProvider implements ServiceManagerAwareInterface
 
         $this->getEventManager()->trigger(__FUNCTION__, $this, array('user' => $currentUser));
         $this->getUserMapper()->update($currentUser);
-        $this->getEventManager()->trigger(__FUNCTION__.'.post', $this, array('user' => $currentUser));
+        $this->getEventManager()->trigger(__FUNCTION__ . '.post', $this, array('user' => $currentUser));
 
         return true;
     }
@@ -72,11 +71,8 @@ class User extends EventProvider implements ServiceManagerAwareInterface
 
         // Send email to user
         $message = $this->_email(
-                $data['email'],
-                'Your New Password',
-                'new-password',
-                array('password' => $randomString)
-                );
+                $data['email'], 'Your New Password', 'new-password', array('password' => $randomString)
+        );
         if (!$message) {
             $this->_addMessage('Unable to send new password email.', 'error');
             return false;
@@ -87,8 +83,8 @@ class User extends EventProvider implements ServiceManagerAwareInterface
 
         // Save
         return $this->_save(
-                'Your password has been reset.', 'Unable to save new password.'
-                );
+                        'Your password has been reset.', 'Unable to save new password.'
+        );
     }
 
     /**
@@ -162,5 +158,5 @@ class User extends EventProvider implements ServiceManagerAwareInterface
             $this->_flashMessenger->addMessage($value);
         }
     }
-    
+
 }

@@ -8,6 +8,7 @@ use Zend\EventManager\EventInterface;
 
 class Access implements ListenerAggregateInterface
 {
+
     /**
      * @var array
      */
@@ -73,7 +74,6 @@ class Access implements ListenerAggregateInterface
 
                 return $this->_redirect($event, $url);
             }
-
         }
 
         // Check identity
@@ -118,9 +118,10 @@ class Access implements ListenerAggregateInterface
         $router = $event->getRouter();
         $url    = $router->assemble(
                 $params, array('name' => 'zfcuser')
-                );
+        );
 
         return $url;
     }
 
 }
+

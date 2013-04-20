@@ -13,7 +13,7 @@ class UserController extends AbstractActionController
 {
 
     const ROUTE_RESETPASSWD = 'infinityuser/resetpassword';
-    const CONTROLLER_NAME = 'infinityuser';
+    const CONTROLLER_NAME   = 'infinityuser';
 
     /**
      * @var UserService
