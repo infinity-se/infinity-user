@@ -63,11 +63,6 @@ class User implements UserInterface
      */
     private $emails;
 
-    /** 
-     * @ORM\OneToMany(targetEntity="InfinityAccounts\Entity\PaymentType", mappedBy="user")
-     */
-    private $paymentTypes;
-
     /**
      * @ORM\ManyToOne(targetEntity="InfinityUser\Entity\UserState", inversedBy="users")
      * @ORM\JoinColumn(name="state_id", referencedColumnName="id")
