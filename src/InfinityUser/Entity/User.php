@@ -70,12 +70,8 @@ class User implements UserInterface
     private $state;
 
     /**
-     * @ORM\ManyToMany(targetEntity="InfinityRbac\Entity\Role", inversedBy="users")
-     * @ORM\JoinTable(
-     *     name="user_role", 
-     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)}, 
-     *     inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id", nullable=false)}
-     * )
+     * 
+     * 
      */
     private $roles;
 
