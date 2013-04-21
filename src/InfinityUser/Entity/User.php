@@ -63,6 +63,11 @@ class User implements UserInterface
      */
     private $emails;
 
+    /** 
+     * @ORM\OneToMany(targetEntity="InfinityAccounts\Entity\PaymentType", mappedBy="user")
+     */
+    private $paymentTypes;
+
     /**
      * @ORM\ManyToOne(targetEntity="InfinityUser\Entity\UserState", inversedBy="users")
      * @ORM\JoinColumn(name="state_id", referencedColumnName="id")
@@ -72,8 +77,8 @@ class User implements UserInterface
     /**
      * @ORM\ManyToMany(targetEntity="InfinityRbac\Entity\Role", inversedBy="users")
      * @ORM\JoinTable(
-     *     name="user_role",
-     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)},
+     *     name="user_role", 
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)}, 
      *     inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id", nullable=false)}
      * )
      */
@@ -82,8 +87,8 @@ class User implements UserInterface
     /**
      * @ORM\ManyToMany(targetEntity="InfinityAccounts\Entity\Account", inversedBy="users")
      * @ORM\JoinTable(
-     *     name="user_account",
-     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)},
+     *     name="user_account", 
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)}, 
      *     inverseJoinColumns={@ORM\JoinColumn(name="account_id", referencedColumnName="id", nullable=false)}
      * )
      */
