@@ -5,9 +5,10 @@ namespace InfinityUser;
 use InfinityUser\Authentication\Listener\Access as AccessListener;
 use Zend\EventManager\EventInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\ModuleManager\Feature\DependencyIndicatorInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
 
-class Module implements ConfigProviderInterface, ServiceProviderInterface
+class Module implements ConfigProviderInterface, DependencyIndicatorInterface, ServiceProviderInterface
 {
 
     public function onBootstrap(EventInterface $event)
@@ -36,7 +37,7 @@ class Module implements ConfigProviderInterface, ServiceProviderInterface
     public function getServiceConfig()
     {
         return array(
-            'factories' => array(
+            'factories'                        => array(
                 'zfcuser_user_mapper' => function ($serviceManager) {
                     return new Mapper\User(
                             $serviceManager->get('zfcuser_doctrine_em'), $serviceManager->get('zfcuser_module_options')
@@ -49,6 +50,11 @@ class Module implements ConfigProviderInterface, ServiceProviderInterface
                 },
             ),
         );
+    }
+
+    public function getModuleDependencies()
+    {
+        return array('InfinityBootstrap', 'ZfcUserDoctrineORM');
     }
 
 }

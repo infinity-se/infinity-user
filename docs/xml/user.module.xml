@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<orm-designer version="2.1.10.697">
-  <module name="InfinityUser" import-format="Doctrine2Php" import-path="../../src/InfinityUser/Entity" uuid="09cbd4c3-7167-46e0-811b-2ab59d9f8960">
+<orm-designer version="2.1.11.711">
+  <module name="InfinityUser" import-format="Doctrine2Php" import-path="../../../../../../../vendor/infinity/infinity-user/src/InfinityUser/Entity" uuid="09cbd4c3-7167-46e0-811b-2ab59d9f8960">
     <entity name="UserReset" uuid="316c1cb1-30d0-418e-a8af-12302450f752">
       <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="507b25f7-4aa5-42d6-9bf9-93754ca57e7b"/>
       <field name="user_id" type="integer" required="true" uuid="1bc4b899-463b-4e40-9b07-7b1133808edd"/>
@@ -119,6 +119,8 @@
           <attribute name="column">last_modified</attribute>
         </orm-attributes>
       </field>
+      <field name="type" uuid="52af9939-f98a-4db2-9684-8afeaeef63cd"/>
+      <inheritance-parent discriminator-field="type" type="SINGLE_TABLE" uuid="52f0d75d-dd30-4f03-9364-8b1ed723ec6f"/>
       <orm-attributes>
         <attribute name="table">user</attribute>
       </orm-attributes>

@@ -2,7 +2,6 @@
 
 namespace InfinityUser\Service;
 
-use Zend\Authentication\AuthenticationService;
 use Zend\Form\Form;
 use Zend\ServiceManager\ServiceManagerAwareInterface;
 use Zend\ServiceManager\ServiceManager;

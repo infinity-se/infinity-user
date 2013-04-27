@@ -11,6 +11,9 @@ use ZfcUser\Entity\UserInterface;
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorMap({"account"="InfinityAccounts\Entity\AccountUser"})
+ * @ORM\DiscriminatorColumn(name="type")
  */
 class User implements UserInterface
 {
@@ -70,22 +73,6 @@ class User implements UserInterface
     private $state;
 
     /**
-     * 
-     * 
-     */
-    private $roles;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="InfinityAccounts\Entity\Account", inversedBy="users")
-     * @ORM\JoinTable(
-     *     name="user_account", 
-     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)}, 
-     *     inverseJoinColumns={@ORM\JoinColumn(name="account_id", referencedColumnName="id", nullable=false)}
-     * )
-     */
-    private $accounts;
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -94,8 +81,6 @@ class User implements UserInterface
         $this->lastModified = new \DateTime();
         $this->passwords    = new ArrayCollection();
         $this->emails       = new ArrayCollection();
-        $this->roles        = new ArrayCollection();
-        $this->accounts     = new ArrayCollection();
     }
 
     /**
@@ -312,72 +297,6 @@ class User implements UserInterface
         return $this->state;
     }
 
-    /**
-     * Add roles
-     *
-     * @param \InfinityRbac\Entity\Role $roles
-     * @return User
-     */
-    public function addRole(\InfinityRbac\Entity\Role $roles)
-    {
-        $this->roles[] = $roles;
-
-        return $this;
-    }
-
-    /**
-     * Remove roles
-     *
-     * @param \InfinityRbac\Entity\Role $roles
-     */
-    public function removeRole(\InfinityRbac\Entity\Role $roles)
-    {
-        $this->roles->removeElement($roles);
-    }
-
-    /**
-     * Get roles
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getRoles()
-    {
-        return $this->roles;
-    }
-
-    /**
-     * Add accounts
-     *
-     * @param \InfinityAccounts\Entity\Account $accounts
-     * @return User
-     */
-    public function addAccount(\InfinityAccounts\Entity\Account $accounts)
-    {
-        $this->accounts[] = $accounts;
-
-        return $this;
-    }
-
-    /**
-     * Remove accounts
-     *
-     * @param \InfinityAccounts\Entity\Account $accounts
-     */
-    public function removeAccount(\InfinityAccounts\Entity\Account $accounts)
-    {
-        $this->accounts->removeElement($accounts);
-    }
-
-    /**
-     * Get accounts
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getAccounts()
-    {
-        return $this->accounts;
-    }
-
     /* ZFCUSER PROXY METHODS */
 
     /**
@@ -547,6 +466,39 @@ class User implements UserInterface
     public function setId($id)
     {
         $this->id = (int) $id;
+    }
+
+    /**
+     * Add verifications
+     *
+     * @param \InfinityUser\Entity\UserReset $verifications
+     * @return User
+     */
+    public function addVerification(\InfinityUser\Entity\UserReset $verifications)
+    {
+        $this->verifications[] = $verifications;
+
+        return $this;
+    }
+
+    /**
+     * Remove verifications
+     *
+     * @param \InfinityUser\Entity\UserReset $verifications
+     */
+    public function removeVerification(\InfinityUser\Entity\UserReset $verifications)
+    {
+        $this->verifications->removeElement($verifications);
+    }
+
+    /**
+     * Get verifications
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVerifications()
+    {
+        return $this->verifications;
     }
 
 }

@@ -272,5 +272,50 @@ class UserProfile
         return $this->user;
     }
 
-}
 
+    /**
+     * Set recoveryAnswer
+     *
+     * @param string $recoveryAnswer
+     * @return UserProfile
+     */
+    public function setRecoveryAnswer($recoveryAnswer)
+    {
+        $this->recoveryAnswer = $recoveryAnswer;
+    
+        return $this;
+    }
+
+    /**
+     * Get recoveryAnswer
+     *
+     * @return string 
+     */
+    public function getRecoveryAnswer()
+    {
+        return $this->recoveryAnswer;
+    }
+
+    /**
+     * Set recoveryQuestion
+     *
+     * @param string $recoveryQuestion
+     * @return UserProfile
+     */
+    public function setRecoveryQuestion($recoveryQuestion)
+    {
+        $this->recoveryQuestion = $recoveryQuestion;
+    
+        return $this;
+    }
+
+    /**
+     * Get recoveryQuestion
+     *
+     * @return string 
+     */
+    public function getRecoveryQuestion()
+    {
+        return $this->recoveryQuestion;
+    }
+}
