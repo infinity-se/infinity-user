@@ -1,164 +1,164 @@
 <?xml version="1.0"?>
 <orm-designer version="2.1.11.711">
-  <module name="InfinityUser" import-format="Doctrine2Php" import-path="../../../../../../../vendor/infinity/infinity-user/src/InfinityUser/Entity" uuid="09cbd4c3-7167-46e0-811b-2ab59d9f8960">
-    <entity name="UserReset" uuid="316c1cb1-30d0-418e-a8af-12302450f752">
-      <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="507b25f7-4aa5-42d6-9bf9-93754ca57e7b"/>
-      <field name="user_id" type="integer" required="true" uuid="1bc4b899-463b-4e40-9b07-7b1133808edd"/>
-      <field name="verification" type="string" size="60" required="true" uuid="9998a0fa-2a3b-47c4-b7ac-bc447af56487"/>
-      <field name="verified" type="datetime" uuid="80bbafb7-8d64-4bd9-aa91-e8769d091570"/>
-      <field name="created" type="datetime" required="true" uuid="6a382dc3-6200-4fd3-976e-a40dbfcdbb7e"/>
-      <orm-attributes>
-        <attribute name="table">user_reset</attribute>
-      </orm-attributes>
-    </entity>
-    <association from="UserReset" to="User" owner-alias="verifications" inverse-alias="user" uuid="c1b991c9-54a4-41fe-b420-9092bc15d77e">
-      <association-field from="user_id" to="id"/>
-    </association>
-    <entity name="UserState" uuid="950c9741-c054-4ad3-a566-d5d7bd44f0b1">
-      <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="1e34a302-f060-4a2a-bd17-cf1f29c887e4"/>
-      <field name="name" type="string" size="32" required="true" unique="true" uuid="f5642311-b1c8-4e89-8cfc-073f594b89be"/>
-      <field name="description" type="string" uuid="cdc73e4b-88f2-4917-87a7-7d4ad6cbf1c7"/>
-      <field name="message" type="string" required="true" uuid="03c7abff-dc3f-46bd-bf0e-cdc9b14697ba"/>
-      <field name="created" type="datetime" required="true" uuid="f55ea8b4-08df-432c-8520-86375a99d7e2"/>
-      <field name="lastModified" type="datetime" required="true" uuid="c8d7961e-68ce-44d8-8814-81e658770721">
+    <module name="InfinityUser" import-format="Doctrine2Php" import-path="../../src/InfinityUser/Entity" uuid="09cbd4c3-7167-46e0-811b-2ab59d9f8960">
+        <entity name="UserReset" uuid="316c1cb1-30d0-418e-a8af-12302450f752">
+            <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="507b25f7-4aa5-42d6-9bf9-93754ca57e7b"/>
+            <field name="user_id" type="integer" required="true" uuid="1bc4b899-463b-4e40-9b07-7b1133808edd"/>
+            <field name="verification" type="string" size="60" required="true" uuid="9998a0fa-2a3b-47c4-b7ac-bc447af56487"/>
+            <field name="verified" type="datetime" uuid="80bbafb7-8d64-4bd9-aa91-e8769d091570"/>
+            <field name="created" type="datetime" required="true" uuid="6a382dc3-6200-4fd3-976e-a40dbfcdbb7e"/>
+            <orm-attributes>
+                <attribute name="table">user_reset</attribute>
+            </orm-attributes>
+        </entity>
+        <association from="UserReset" to="User" owner-alias="verifications" inverse-alias="user" uuid="c1b991c9-54a4-41fe-b420-9092bc15d77e">
+            <association-field from="user_id" to="id"/>
+        </association>
+        <entity name="UserState" uuid="950c9741-c054-4ad3-a566-d5d7bd44f0b1">
+            <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="1e34a302-f060-4a2a-bd17-cf1f29c887e4"/>
+            <field name="name" type="string" size="32" required="true" unique="true" uuid="f5642311-b1c8-4e89-8cfc-073f594b89be"/>
+            <field name="description" type="string" uuid="cdc73e4b-88f2-4917-87a7-7d4ad6cbf1c7"/>
+            <field name="message" type="string" required="true" uuid="03c7abff-dc3f-46bd-bf0e-cdc9b14697ba"/>
+            <field name="created" type="datetime" required="true" uuid="f55ea8b4-08df-432c-8520-86375a99d7e2"/>
+            <field name="lastModified" type="datetime" required="true" uuid="c8d7961e-68ce-44d8-8814-81e658770721">
+                <orm-attributes>
+                    <attribute name="column">last_modified</attribute>
+                </orm-attributes>
+            </field>
+            <orm-attributes>
+                <attribute name="table">user_state</attribute>
+            </orm-attributes>
+        </entity>
+        <entity name="UserProfile" uuid="21496a96-4a8a-4766-bb01-a048c9462c42">
+            <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="da0bf666-dad3-48ae-b721-acd0cae1d477"/>
+            <field name="user_id" type="integer" required="true" unique="true" uuid="572035fb-464d-4ec6-8734-a0a6e149415f"/>
+            <field name="name" type="string" size="32" required="true" uuid="38987dde-1b64-43aa-b3cc-f52ef8b12e88"/>
+            <field name="forename" type="string" size="50" uuid="fc3cc5bb-6b3c-49ef-9f45-639f011e44e5"/>
+            <field name="surname" type="string" size="50" uuid="bc0c319e-f47d-4cb5-9514-8d040b030d50"/>
+            <field name="dateOfBirth" type="date" uuid="672ebf7a-6cfc-4150-bae4-041dec81d6d2">
+                <orm-attributes>
+                    <attribute name="column">date_of_birth</attribute>
+                </orm-attributes>
+            </field>
+            <field name="gender" type="boolean" uuid="9c626ae3-9378-4ad4-899d-eb6c384dff03"/>
+            <field name="recoveryQuestion" type="string" size="150" uuid="f5646265-1292-4286-b06e-060cc6d44239">
+                <orm-attributes>
+                    <attribute name="column">recovery_question</attribute>
+                </orm-attributes>
+            </field>
+            <field name="recoveryAnswer" type="string" size="50" uuid="009b92ab-3cac-44b5-9c7a-20d317b5d597">
+                <orm-attributes>
+                    <attribute name="column">recovery_answer</attribute>
+                </orm-attributes>
+            </field>
+            <field name="created" type="datetime" required="true" uuid="7ead58dc-b3c4-495c-b161-d8b16dc39cfc"/>
+            <field name="lastModified" type="datetime" required="true" uuid="59a95d7c-ebb4-463d-86b8-a8c46c742033">
+                <orm-attributes>
+                    <attribute name="column">last_modified</attribute>
+                </orm-attributes>
+            </field>
+            <orm-attributes>
+                <attribute name="table">user_profile</attribute>
+            </orm-attributes>
+        </entity>
+        <association from="UserProfile" to="User" owner-alias="profile" inverse-alias="user" uuid="4dca1b37-c80d-467f-8057-c71a141a2822">
+            <association-field from="user_id" to="id"/>
+            <orm-attributes>
+                <attribute name="side-inverse">
+                    <attribute name="cascade">
+                        <attribute name="cascade-persist">true</attribute>
+                    </attribute>
+                </attribute>
+            </orm-attributes>
+        </association>
+        <entity name="UserPassword" uuid="9cc7b012-9c6c-4f83-882b-9a3ad5d1339f">
+            <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="1de07c4c-29e0-41b2-a67d-7314785dfd70"/>
+            <field name="user_id" type="integer" required="true" uuid="bc993b60-c1d0-4513-9c0c-0fa46235ec6b"/>
+            <field name="password" type="string" size="60" required="true" uuid="d3967151-06f7-44cd-8564-19ae6dd9b1a2"/>
+            <field name="created" type="datetime" required="true" uuid="8e2a8eaa-3cb3-4c34-a722-a69d49143b86"/>
+            <index name="UniqueUserPassword" unique="true">
+                <index-field name="user_id"/>
+                <index-field name="password"/>
+            </index>
+            <orm-attributes>
+                <attribute name="table">user_password</attribute>
+            </orm-attributes>
+        </entity>
+        <association from="UserPassword" to="User" owner-alias="passwords" inverse-alias="user" uuid="b7d3613c-3225-4aa3-935e-fb1c3224b306">
+            <association-field from="user_id" to="id"/>
+            <orm-attributes>
+                <attribute name="side-inverse">
+                    <attribute name="cascade">
+                        <attribute name="cascade-persist">true</attribute>
+                    </attribute>
+                </attribute>
+            </orm-attributes>
+        </association>
+        <entity name="UserEmail" uuid="48a0a345-840a-4e4f-b85f-b280969113d8">
+            <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="74c78183-fc17-4710-a520-56a2a49c6bd6"/>
+            <field name="user_id" type="integer" required="true" uuid="bd4fd302-dae9-4506-8066-3afd7c8e90e1"/>
+            <field name="email" type="string" size="150" required="true" unique="true" uuid="f171cb4a-7a70-4a82-9ce9-35bf2c2f403e"/>
+            <field name="verification" type="string" size="60" required="true" uuid="90716ac0-15ed-4f2a-8527-802f271608ba"/>
+            <field name="verified" type="datetime" uuid="3b75f802-cd55-43d9-8f96-c51e3e653cba"/>
+            <field name="created" type="datetime" required="true" uuid="5eeb8374-dd6d-4a5e-9eed-1dee9a614b08"/>
+            <orm-attributes>
+                <attribute name="table">user_email</attribute>
+            </orm-attributes>
+        </entity>
+        <association from="UserEmail" to="User" owner-alias="emails" inverse-alias="user" uuid="4564e252-10c3-4e44-b0f4-4f20de4ecac3">
+            <association-field from="user_id" to="id"/>
+        </association>
+        <entity name="User" uuid="ad1f5ebf-2c10-462d-bbd3-07243a2d2ae9">
+            <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="01417625-f715-40dd-8d5c-20d70b7e790d"/>
+            <field name="primary_email_id" type="integer" unique="true" uuid="2cee3f33-a097-4c75-ba53-32f39ffffe94"/>
+            <field name="state_id" type="integer" uuid="20a4dc98-dd81-4093-9456-8a7aa1f8b267"/>
+            <field name="banned" type="datetime" uuid="9e94fe77-7339-4c0f-8eb1-baa0376f9a57"/>
+            <field name="created" type="datetime" required="true" uuid="d2e9a43f-65fa-462b-ad17-8c57d8c15ca1"/>
+            <field name="lastModified" type="datetime" required="true" uuid="a7795645-0515-4411-95c4-45667f5436f4">
+                <orm-attributes>
+                    <attribute name="column">last_modified</attribute>
+                </orm-attributes>
+            </field>
+            <field name="type" uuid="52af9939-f98a-4db2-9684-8afeaeef63cd"/>
+            <inheritance-parent discriminator-field="type" type="SINGLE_TABLE" uuid="52f0d75d-dd30-4f03-9364-8b1ed723ec6f"/>
+            <orm-attributes>
+                <attribute name="table">user</attribute>
+            </orm-attributes>
+        </entity>
+        <association from="User" to="UserEmail" inverse-alias="primaryEmail" uuid="e683f66e-2066-450c-9972-a1d7cb65e9ce">
+            <association-field from="primary_email_id" to="id"/>
+            <orm-attributes>
+                <attribute name="side-owning">
+                    <attribute name="cascade">
+                        <attribute name="cascade-persist">true</attribute>
+                    </attribute>
+                </attribute>
+            </orm-attributes>
+        </association>
+        <association from="User" to="UserState" owner-alias="users" inverse-alias="state" uuid="cd0ddd17-b573-4714-aed5-6d101ec3fbbf">
+            <association-field from="state_id" to="id"/>
+        </association>
+        <region caption="Users" uuid="f2f8bd58-d6c2-4717-9f16-3d09050b2bcc">
+            <entity-ref name="UserReset"/>
+            <entity-ref name="UserState"/>
+            <entity-ref name="UserProfile"/>
+            <entity-ref name="UserPassword"/>
+            <entity-ref name="UserEmail"/>
+            <entity-ref name="User"/>
+        </region>
         <orm-attributes>
-          <attribute name="column">last_modified</attribute>
+            <attribute name="namespace">InfinityUser\Entity</attribute>
+            <attribute name="filename-format">entity-name-only</attribute>
         </orm-attributes>
-      </field>
-      <orm-attributes>
-        <attribute name="table">user_state</attribute>
-      </orm-attributes>
-    </entity>
-    <entity name="UserProfile" uuid="21496a96-4a8a-4766-bb01-a048c9462c42">
-      <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="da0bf666-dad3-48ae-b721-acd0cae1d477"/>
-      <field name="user_id" type="integer" required="true" unique="true" uuid="572035fb-464d-4ec6-8734-a0a6e149415f"/>
-      <field name="name" type="string" size="32" required="true" uuid="38987dde-1b64-43aa-b3cc-f52ef8b12e88"/>
-      <field name="forename" type="string" size="50" uuid="fc3cc5bb-6b3c-49ef-9f45-639f011e44e5"/>
-      <field name="surname" type="string" size="50" uuid="bc0c319e-f47d-4cb5-9514-8d040b030d50"/>
-      <field name="dateOfBirth" type="date" uuid="672ebf7a-6cfc-4150-bae4-041dec81d6d2">
-        <orm-attributes>
-          <attribute name="column">date_of_birth</attribute>
-        </orm-attributes>
-      </field>
-      <field name="gender" type="boolean" uuid="9c626ae3-9378-4ad4-899d-eb6c384dff03"/>
-      <field name="recoveryQuestion" type="string" size="150" uuid="f5646265-1292-4286-b06e-060cc6d44239">
-        <orm-attributes>
-          <attribute name="column">recovery_question</attribute>
-        </orm-attributes>
-      </field>
-      <field name="recoveryAnswer" type="string" size="50" uuid="009b92ab-3cac-44b5-9c7a-20d317b5d597">
-        <orm-attributes>
-          <attribute name="column">recovery_answer</attribute>
-        </orm-attributes>
-      </field>
-      <field name="created" type="datetime" required="true" uuid="7ead58dc-b3c4-495c-b161-d8b16dc39cfc"/>
-      <field name="lastModified" type="datetime" required="true" uuid="59a95d7c-ebb4-463d-86b8-a8c46c742033">
-        <orm-attributes>
-          <attribute name="column">last_modified</attribute>
-        </orm-attributes>
-      </field>
-      <orm-attributes>
-        <attribute name="table">user_profile</attribute>
-      </orm-attributes>
-    </entity>
-    <association from="UserProfile" to="User" owner-alias="profile" inverse-alias="user" uuid="4dca1b37-c80d-467f-8057-c71a141a2822">
-      <association-field from="user_id" to="id"/>
-      <orm-attributes>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-persist">true</attribute>
-          </attribute>
-        </attribute>
-      </orm-attributes>
-    </association>
-    <entity name="UserPassword" uuid="9cc7b012-9c6c-4f83-882b-9a3ad5d1339f">
-      <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="1de07c4c-29e0-41b2-a67d-7314785dfd70"/>
-      <field name="user_id" type="integer" required="true" uuid="bc993b60-c1d0-4513-9c0c-0fa46235ec6b"/>
-      <field name="password" type="string" size="60" required="true" uuid="d3967151-06f7-44cd-8564-19ae6dd9b1a2"/>
-      <field name="created" type="datetime" required="true" uuid="8e2a8eaa-3cb3-4c34-a722-a69d49143b86"/>
-      <index name="UniqueUserPassword" unique="true">
-        <index-field name="user_id"/>
-        <index-field name="password"/>
-      </index>
-      <orm-attributes>
-        <attribute name="table">user_password</attribute>
-      </orm-attributes>
-    </entity>
-    <association from="UserPassword" to="User" owner-alias="passwords" inverse-alias="user" uuid="b7d3613c-3225-4aa3-935e-fb1c3224b306">
-      <association-field from="user_id" to="id"/>
-      <orm-attributes>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-persist">true</attribute>
-          </attribute>
-        </attribute>
-      </orm-attributes>
-    </association>
-    <entity name="UserEmail" uuid="48a0a345-840a-4e4f-b85f-b280969113d8">
-      <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="74c78183-fc17-4710-a520-56a2a49c6bd6"/>
-      <field name="user_id" type="integer" required="true" uuid="bd4fd302-dae9-4506-8066-3afd7c8e90e1"/>
-      <field name="email" type="string" size="150" required="true" unique="true" uuid="f171cb4a-7a70-4a82-9ce9-35bf2c2f403e"/>
-      <field name="verification" type="string" size="60" required="true" uuid="90716ac0-15ed-4f2a-8527-802f271608ba"/>
-      <field name="verified" type="datetime" uuid="3b75f802-cd55-43d9-8f96-c51e3e653cba"/>
-      <field name="created" type="datetime" required="true" uuid="5eeb8374-dd6d-4a5e-9eed-1dee9a614b08"/>
-      <orm-attributes>
-        <attribute name="table">user_email</attribute>
-      </orm-attributes>
-    </entity>
-    <association from="UserEmail" to="User" owner-alias="emails" inverse-alias="user" uuid="4564e252-10c3-4e44-b0f4-4f20de4ecac3">
-      <association-field from="user_id" to="id"/>
-    </association>
-    <entity name="User" uuid="ad1f5ebf-2c10-462d-bbd3-07243a2d2ae9">
-      <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="01417625-f715-40dd-8d5c-20d70b7e790d"/>
-      <field name="primary_email_id" type="integer" unique="true" uuid="2cee3f33-a097-4c75-ba53-32f39ffffe94"/>
-      <field name="state_id" type="integer" uuid="20a4dc98-dd81-4093-9456-8a7aa1f8b267"/>
-      <field name="banned" type="datetime" uuid="9e94fe77-7339-4c0f-8eb1-baa0376f9a57"/>
-      <field name="created" type="datetime" required="true" uuid="d2e9a43f-65fa-462b-ad17-8c57d8c15ca1"/>
-      <field name="lastModified" type="datetime" required="true" uuid="a7795645-0515-4411-95c4-45667f5436f4">
-        <orm-attributes>
-          <attribute name="column">last_modified</attribute>
-        </orm-attributes>
-      </field>
-      <field name="type" uuid="52af9939-f98a-4db2-9684-8afeaeef63cd"/>
-      <inheritance-parent discriminator-field="type" type="SINGLE_TABLE" uuid="52f0d75d-dd30-4f03-9364-8b1ed723ec6f"/>
-      <orm-attributes>
-        <attribute name="table">user</attribute>
-      </orm-attributes>
-    </entity>
-    <association from="User" to="UserEmail" inverse-alias="primaryEmail" uuid="e683f66e-2066-450c-9972-a1d7cb65e9ce">
-      <association-field from="primary_email_id" to="id"/>
-      <orm-attributes>
-        <attribute name="side-owning">
-          <attribute name="cascade">
-            <attribute name="cascade-persist">true</attribute>
-          </attribute>
-        </attribute>
-      </orm-attributes>
-    </association>
-    <association from="User" to="UserState" owner-alias="users" inverse-alias="state" uuid="cd0ddd17-b573-4714-aed5-6d101ec3fbbf">
-      <association-field from="state_id" to="id"/>
-    </association>
-    <region caption="Users" uuid="f2f8bd58-d6c2-4717-9f16-3d09050b2bcc">
-      <entity-ref name="UserReset"/>
-      <entity-ref name="UserState"/>
-      <entity-ref name="UserProfile"/>
-      <entity-ref name="UserPassword"/>
-      <entity-ref name="UserEmail"/>
-      <entity-ref name="User"/>
-    </region>
-    <orm-attributes>
-      <attribute name="namespace">InfinityUser\Entity</attribute>
-      <attribute name="filename-format">entity-name-only</attribute>
-    </orm-attributes>
-  </module>
-  <visual-data>
-    <module uuid="09cbd4c3-7167-46e0-811b-2ab59d9f8960" bk-color="4294244851" position-x="0" position-y="52" size-x="200" size-x2="550" size-y="152" size-y2="548"/>
-    <entity uuid="21496a96-4a8a-4766-bb01-a048c9462c42" position-x="300" position-y="232" size-x="0" size-x2="123" size-y="0" size-y2="129"/>
-    <entity uuid="316c1cb1-30d0-418e-a8af-12302450f752" position-x="-100" position-y="182" size-x="0" size-x2="120" size-y="0" size-y2="73"/>
-    <entity uuid="48a0a345-840a-4e4f-b85f-b280969113d8" position-x="50" position-y="32" size-x="0" size-x2="123" size-y="0" size-y2="101"/>
-    <entity uuid="950c9741-c054-4ad3-a566-d5d7bd44f0b1" position-x="-20" position-y="331" size-x="0" size-x2="120" size-y="0" size-y2="101"/>
-    <entity uuid="9cc7b012-9c6c-4f83-882b-9a3ad5d1339f" position-x="299" position-y="132" size-x="0" size-x2="112" size-y="0" size-y2="73"/>
-    <entity uuid="ad1f5ebf-2c10-462d-bbd3-07243a2d2ae9" position-x="100" position-y="182" size-x="0" size-x2="136" size-y="0" size-y2="87"/>
-    <region uuid="f2f8bd58-d6c2-4717-9f16-3d09050b2bcc" bk-color="16708597" position-x="0" position-y="-84" size-x="150" size-x2="500" size-y="18" size-y2="582"/>
-  </visual-data>
+    </module>
+    <visual-data>
+        <module uuid="09cbd4c3-7167-46e0-811b-2ab59d9f8960" bk-color="4294244851" position-x="0" position-y="52" size-x="200" size-x2="350" size-y="152" size-y2="598"/>
+        <entity uuid="21496a96-4a8a-4766-bb01-a048c9462c42" position-x="97" position-y="382" size-x="0" size-x2="153" size-y="0" size-y2="171"/>
+        <entity uuid="316c1cb1-30d0-418e-a8af-12302450f752" position-x="-100" position-y="232" size-x="0" size-x2="120" size-y="0" size-y2="87"/>
+        <entity uuid="48a0a345-840a-4e4f-b85f-b280969113d8" position-x="-100" position-y="32" size-x="0" size-x2="120" size-y="0" size-y2="101"/>
+        <entity uuid="950c9741-c054-4ad3-a566-d5d7bd44f0b1" position-x="-100" position-y="382" size-x="0" size-x2="120" size-y="0" size-y2="101"/>
+        <entity uuid="9cc7b012-9c6c-4f83-882b-9a3ad5d1339f" position-x="138" position-y="232" size-x="0" size-x2="112" size-y="0" size-y2="73"/>
+        <entity uuid="ad1f5ebf-2c10-462d-bbd3-07243a2d2ae9" position-x="117" position-y="32" size-x="0" size-x2="133" size-y="0" size-y2="115"/>
+        <region uuid="f2f8bd58-d6c2-4717-9f16-3d09050b2bcc" bk-color="16708597" position-x="0" position-y="-84" size-x="150" size-x2="300" size-y="18" size-y2="632"/>
+    </visual-data>
 </orm-designer>
