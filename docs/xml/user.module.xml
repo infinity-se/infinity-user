@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <orm-designer version="2.1.11.711">
-  <module name="InfinityUser" import-format="Doctrine2Php" import-path="../../../../../../../vendor/infinity/infinity-user/src/InfinityUser/Entity" uuid="09cbd4c3-7167-46e0-811b-2ab59d9f8960">
+  <module name="InfinityUser" import-format="Doctrine2Php" import-path="../../src/InfinityUser/Entity" uuid="09cbd4c3-7167-46e0-811b-2ab59d9f8960">
     <entity name="UserReset" uuid="316c1cb1-30d0-418e-a8af-12302450f752">
       <field name="id" type="integer" required="true" primary="true" auto-increment="true" uuid="507b25f7-4aa5-42d6-9bf9-93754ca57e7b"/>
       <field name="user_id" type="integer" required="true" uuid="1bc4b899-463b-4e40-9b07-7b1133808edd"/>
@@ -152,13 +152,13 @@
     </orm-attributes>
   </module>
   <visual-data>
-    <module uuid="09cbd4c3-7167-46e0-811b-2ab59d9f8960" bk-color="4294244851" position-x="0" position-y="52" size-x="200" size-x2="550" size-y="152" size-y2="548"/>
-    <entity uuid="21496a96-4a8a-4766-bb01-a048c9462c42" position-x="300" position-y="232" size-x="0" size-x2="123" size-y="0" size-y2="129"/>
-    <entity uuid="316c1cb1-30d0-418e-a8af-12302450f752" position-x="-100" position-y="182" size-x="0" size-x2="120" size-y="0" size-y2="73"/>
-    <entity uuid="48a0a345-840a-4e4f-b85f-b280969113d8" position-x="50" position-y="32" size-x="0" size-x2="123" size-y="0" size-y2="101"/>
-    <entity uuid="950c9741-c054-4ad3-a566-d5d7bd44f0b1" position-x="-20" position-y="331" size-x="0" size-x2="120" size-y="0" size-y2="101"/>
-    <entity uuid="9cc7b012-9c6c-4f83-882b-9a3ad5d1339f" position-x="299" position-y="132" size-x="0" size-x2="112" size-y="0" size-y2="73"/>
-    <entity uuid="ad1f5ebf-2c10-462d-bbd3-07243a2d2ae9" position-x="100" position-y="182" size-x="0" size-x2="136" size-y="0" size-y2="87"/>
-    <region uuid="f2f8bd58-d6c2-4717-9f16-3d09050b2bcc" bk-color="16708597" position-x="0" position-y="-84" size-x="150" size-x2="500" size-y="18" size-y2="582"/>
+    <module uuid="09cbd4c3-7167-46e0-811b-2ab59d9f8960" bk-color="4294244851" position-x="0" position-y="52" size-x="200" size-x2="350" size-y="152" size-y2="598"/>
+    <entity uuid="21496a96-4a8a-4766-bb01-a048c9462c42" position-x="97" position-y="382" size-x="0" size-x2="153" size-y="0" size-y2="171"/>
+    <entity uuid="316c1cb1-30d0-418e-a8af-12302450f752" position-x="-100" position-y="232" size-x="0" size-x2="120" size-y="0" size-y2="87"/>
+    <entity uuid="48a0a345-840a-4e4f-b85f-b280969113d8" position-x="-100" position-y="32" size-x="0" size-x2="120" size-y="0" size-y2="101"/>
+    <entity uuid="950c9741-c054-4ad3-a566-d5d7bd44f0b1" position-x="-100" position-y="382" size-x="0" size-x2="120" size-y="0" size-y2="101"/>
+    <entity uuid="9cc7b012-9c6c-4f83-882b-9a3ad5d1339f" position-x="138" position-y="232" size-x="0" size-x2="112" size-y="0" size-y2="73"/>
+    <entity uuid="ad1f5ebf-2c10-462d-bbd3-07243a2d2ae9" position-x="117" position-y="32" size-x="0" size-x2="133" size-y="0" size-y2="115"/>
+    <region uuid="f2f8bd58-d6c2-4717-9f16-3d09050b2bcc" bk-color="16708597" position-x="0" position-y="-84" size-x="150" size-x2="300" size-y="18" size-y2="632"/>
   </visual-data>
 </orm-designer>

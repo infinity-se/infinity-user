@@ -12,7 +12,6 @@ use ZfcUser\Entity\UserInterface;
  * @ORM\Entity
  * @ORM\Table(name="user")
  * @ORM\InheritanceType("SINGLE_TABLE")
- * @ORM\DiscriminatorMap({"account"="InfinityAccounts\Entity\AccountUser"})
  * @ORM\DiscriminatorColumn(name="type")
  */
 class User implements UserInterface
