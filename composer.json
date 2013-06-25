@@ -3,7 +3,7 @@
     "description": "ZF2 user module for Infinity",
     "license": "BSD-3-Clause",
     "require": {
-        "infinity/infinity-bootstrap": "0.*",
+        "infinity/infinity-bootstrap": "dev-master",
         "zf-commons/zfc-user-doctrine-orm": "0.*"
     },
     "autoload": {
